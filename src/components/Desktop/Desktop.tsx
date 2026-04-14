@@ -1,22 +1,38 @@
 import DesktopIcon from './DesktopIcon';
 
-const Desktop = () => {
+interface DesktopProps {
+  onIconClick: (id: string) => void;
+}
+
+const Desktop = ({ onIconClick }: DesktopProps) => {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none">
       
       <div className="absolute left-10 top-20 flex flex-col gap-10 pointer-events-auto">
-        <DesktopIcon labelKey="projects" />
+        <DesktopIcon 
+          labelKey="projects" 
+          onClick={() => onIconClick('projects')} 
+        />
         <div className="ml-6 mt-6">
-          <DesktopIcon labelKey="resume" />
+          <DesktopIcon 
+            labelKey="resume" 
+            onClick={() => onIconClick('resume')} 
+          />
         </div>
       </div>
 
       <div className="absolute right-12 top-24 flex flex-col gap-10 pointer-events-auto">
         <div className="mb-8">
-          <DesktopIcon labelKey="skills" />
+          <DesktopIcon 
+            labelKey="skills" 
+            onClick={() => onIconClick('skills')} 
+          />
         </div>
         <div className="mr-6">
-          <DesktopIcon labelKey="about" />
+          <DesktopIcon 
+            labelKey="about" 
+            onClick={() => onIconClick('about')} 
+          />
         </div>
       </div>
 

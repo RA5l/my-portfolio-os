@@ -6,9 +6,10 @@ import folderOpen from '../../assets/open-folder26.png';
 
 interface DesktopIconProps {
   labelKey: string;
+  onClick: () => void;
 }
 
-const DesktopIcon = ({ labelKey }: DesktopIconProps) => {
+const DesktopIcon = ({ labelKey, onClick }: DesktopIconProps) => {
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -17,6 +18,7 @@ const DesktopIcon = ({ labelKey }: DesktopIconProps) => {
       className="flex flex-col items-center gap-2 cursor-pointer w-24 select-none group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick} 
     >
       <div className="w-16 h-16 relative">
         <img 
@@ -31,7 +33,7 @@ const DesktopIcon = ({ labelKey }: DesktopIconProps) => {
         />
       </div>
 
-      <span className="text-[11px] font-bold tracking-wider text-gray-800 uppercase bg-white/50 px-2 py-0.5 rounded backdrop-blur-sm group-hover:bg-black group-hover:text-white transition-all">
+      <span className="text-[11px] font-bold tracking-wider text-gray-800 uppercase bg-white/50 px-2 py-0.5 rounded backdrop-blur-sm group-hover:bg-black group-hover:text-white transition-all text-center">
         {t(`sections.${labelKey}`)}
       </span>
     </div>

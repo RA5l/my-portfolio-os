@@ -31,7 +31,7 @@
         "tagline": "نظام ذكي لتحليل العناية بالبشرة",
         "desc": "مشروع متكامل يربط واجهة React بـ FastAPI لتوليد توصيات مخصصة للبشرة[cite: 21, 55, 56].",
         "tech": ["React", "FastAPI", "SQLite", "Pydantic"],
-        "image": "/projects/glowlixir.png",
+        "image": "/projects/GlowLixir.png",
         "link": "https://github.com/RA5l/GlowLixir"
       },
   {
