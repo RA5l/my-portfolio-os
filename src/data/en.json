@@ -1,0 +1,92 @@
+{
+  "translation": {
+    "sections": {
+      "about": "About Me",
+      "skills": "My Skills",
+      "projects": "Projects",
+      "resume": "CV"
+    },
+    "about_content": {
+      "who_is_title": "Who is Raseel?",
+      "who_is_text": "I am Raseel Mohammed; someone who believes in flexibility as a lifestyle before it's a work style. Like my name, I strive to be like 'flowing water'—adapting to technical challenges to reach the best and simplest solutions.",
+      "passion_title": "What is my passion?",
+      "passion_text": "My main driver is problem-solving. To me, coding is a tool that weaves my thoughts into digital solutions that touch reality and add real value.",
+      "academic_title": "Academic Path & Ambition",
+      "academic_text": "A First-Class Honors graduate in Web Development from TVTC. My goal is to use my skills to build integrated tech projects that leave a tangible impact."
+    },
+    "skills_content": {
+      "web_title": "Web Development",
+      "web_list": ["React", "TypeScript", "JavaScript", "HTML", "CSS", "PHP", "Vue.js", "Vite"],
+      "mobile_title": "Mobile App Development",
+      "mobile_list": ["iOS (Swift)", "Android (Java, XML)"],
+      "tools_title": "Tools & Automation",
+      "tools_list": ["Git & GitHub", "SQL", "Google Apps Script Automation", "UI/UX Design"],
+      "work_title": "Work & Productivity",
+      "work_list": ["Technical Problem Solving", "Effective Communication", "Adaptability"]
+    },
+    "projects_content": [
+    {
+  "id": "glowlixir",
+  "title": "GlowLixir",
+  "tagline": "Smart Skincare Analysis System",
+  "desc": "A full-stack web application that analyzes skin types through an interactive questionnaire, providing personalized recommendations using a React frontend and FastAPI backend.",
+  "tech": ["React", "FastAPI", "SQLite", "Pydantic"],
+  "image": "/projects/GlowLixir.png",
+  "link": "https://github.com/RA5l/GlowLixir"
+  },
+  {
+    "id": "dashviz",
+    "title": "DashViz",
+    "tagline": "Interactive Data Dashboard",
+    "desc": "A professional platform to upload CSV files and instantly transform them into interactive charts with automated stats.",
+    "tech": ["React 18", "TypeScript", "Recharts", "Vite"],
+    "image": "/projects/DashViz.png",
+    "link": "https://dashviz-by-raseel.netlify.app/"
+  },
+  {
+    "id": "studypal",
+    "title": "StudyPal",
+    "tagline": "Smart Productivity Hub",
+    "desc": "A student tool featuring a Pomodoro timer, subject management, real-time stats, and notifications.",
+    "tech": ["React", "Context API", "Local Storage", "Vite"],
+    "image": "/projects/StudyPal.png",
+    "link": "https://studypal-by-raseel.netlify.app/"
+  },
+  {
+    "id": "codesnippet",
+    "title": "CodeSnippet",
+    "tagline": "Developer-Centric Code Manager",
+    "desc": "A sleek tool to organize and store code snippets with syntax highlighting, search, and custom tagging.",
+    "tech": ["TypeScript", "React", "Prism.js", "Vite"],
+    "image": "/projects/CodeSnippet.png",
+    "link": "https://codesnippet-by-raseel.netlify.app/"
+  },
+  {
+    "id": "kanban",
+    "title": "KanBan Board",
+    "tagline": "Drag & Drop Task Management",
+    "desc": "An interactive board supporting drag-and-drop, keyboard shortcuts, and dark mode.",
+    "tech": ["JavaScript", "HTML", "CSS", "Local Storage"],
+    "image": "/projects/Kanban.png",
+    "link": "https://kanban-by-raseel.netlify.app/"
+  },
+  {
+    "id": "task-manager",
+    "title": "Task Manager",
+    "tagline": "Neon Style Tasks",
+    "desc": "A daily task management app with a vibrant neon-inspired interface and data persistence.",
+    "tech": ["JavaScript", "HTML", "CSS Neon"],
+    "image": "/projects/TaskManager.png",
+    "link": "https://taskmanager-by-raseel.netlify.app/"
+  }
+    ],
+    "resume_content": {
+      "text": "Download my resume in your preferred language:",
+      "files": [
+        { "label": "Resume (Arabic)", "url": "/resumes/ar-resume.pdf" },
+        { "label": "Resume (English)", "url": "/resumes/en-resume.pdf" },
+        { "label": "Resume (Dual Language)", "url": "/resumes/dual-resume.pdf" }
+      ]
+    }
+  }
+}

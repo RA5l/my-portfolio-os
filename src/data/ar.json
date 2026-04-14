@@ -1,0 +1,92 @@
+{
+  "translation": {
+    "sections": {
+      "about": "عني",
+      "skills": "مهاراتي",
+      "projects": "مشاريعي",
+      "resume": "السيرة الذاتية"
+    },
+    "about_content": {
+      "who_is_title": "من هي رسيل؟",
+      "who_is_text": "أنا رسيل محمد؛ إنسانة تؤمن بالمرونة كمنهج حياة قبل أن تكون أسلوب عمل. تماماً كاسمي، أسعى دائماً لأن أكون مثل 'الماء الجاري'، أنساب بمرونة مع المتغيرات وأتكيّف مع التحديات التقنية مهما كانت صعبة، لأصل في النهاية إلى أسهل وأفضل الحلول.",
+      "passion_title": "ما هو شغفي؟",
+      "passion_text": "المحرك الأساسي لي هو حب حل المشكلات. البرمجة بالنسبة لي ليست مجرد سطور برمجية أكتبها، هي أداة تغزل خيوط أفكاري وتحولها لرسائل تحمل حلولاً رقمية تلمس الواقع وتضيف قيمة حقيقية.",
+      "academic_title": "مساري الأكاديمي وطموحي",
+      "academic_text": "خريجة المؤسسة العامة للتدريب التقني والمهني بتخصص برمجة وتطوير الويب، حاصلة على مرتبة الشرف الأولى. والآن أسعى لتوظيف مهاراتي في بناء مشاريع تقنية متكاملة تترك أثراً ملموساً."
+    },
+    "skills_content": {
+      "web_title": "تطوير الويب",
+      "web_list": ["React", "TypeScript", "JavaScript", "HTML", "CSS", "PHP", "Vue.js", "Vite"],
+      "mobile_title": "تطوير تطبيقات الجوال",
+      "mobile_list": ["iOS (Swift)", "Android (Java, XML)"],
+      "tools_title": "الأدوات والأتمتة",
+      "tools_list": ["Git & GitHub", "SQL", "أتمتة Google Apps Script", "تصميم UI/UX"],
+      "work_title": "العمل والإنتاجية",
+      "work_list": ["حل المشكلات التقنية", "التواصل الفعال", "المرونة والتكيف"]
+    },
+    "projects_content": [
+    {
+        "id": "glowlixir",
+        "title": "GlowLixir",
+        "tagline": "نظام ذكي لتحليل العناية بالبشرة",
+        "desc": "مشروع متكامل يربط واجهة React بـ FastAPI لتوليد توصيات مخصصة للبشرة[cite: 21, 55, 56].",
+        "tech": ["React", "FastAPI", "SQLite", "Pydantic"],
+        "image": "/projects/glowlixir.png",
+        "link": "https://github.com/RA5l/GlowLixir"
+      },
+  {
+    "id": "dashviz",
+    "title": "DashViz",
+    "tagline": "منصة تحليل بيانات تفاعلية",
+    "desc": "لوحة تحكم احترافية لرفع ملفات CSV وتحويلها فوراً لرسوم بيانية تفاعلية مع تحليل إحصائي مؤتمت.",
+    "tech": ["React 18", "TypeScript", "Recharts", "Vite"],
+    "image": "/projects/DashViz.png",
+    "link": "https://dashviz-by-raseel.netlify.app/"
+  },
+  {
+    "id": "studypal",
+    "title": "StudyPal",
+    "tagline": "منظم دراسي ذكي",
+    "desc": "تطبيق يدمج تقنية بومودورو مع إدارة المواد وإحصائيات الوقت الحقيقي ونظام تنبيهات المتصفح.",
+    "tech": ["React", "Context API", "Local Storage", "Vite"],
+    "image": "/projects/StudyPal.png",
+    "link": "https://studypal-by-raseel.netlify.app/"
+  },
+  {
+    "id": "codesnippet",
+    "title": "CodeSnippet",
+    "tagline": "مدير الأكواد الشخصي",
+    "desc": "أداة متطورة لحفظ وتنظيم القصاصات البرمجية مع دعم التمييز اللوني (Syntax Highlighting) والوسوم.",
+    "tech": ["TypeScript", "React", "Prism.js", "Vite"],
+    "image": "/projects/CodeSnippet.png",
+    "link": "https://codesnippet-by-raseel.netlify.app/"
+  },
+  {
+    "id": "kanban",
+    "title": "KanBan Board",
+    "tagline": "إدارة المهام بالسحب والإفلات",
+    "desc": "لوحة تنظيم مهام تفاعلية تدعم السحب والإفلات واختصارات لوحة المفاتيح والوضع الليلي.",
+    "tech": ["JavaScript", "HTML", "CSS", "Local Storage"],
+    "image": "/projects/Kanban.png",
+    "link": "https://kanban-by-raseel.netlify.app/"
+  },
+  {
+    "id": "task-manager",
+    "title": "Task Manager",
+    "tagline": "إدارة مهام بأسلوب النيون",
+    "desc": "تطبيق بسيط لإدارة المهام اليومية بتصميم جذاب يعتمد على توهج النيون وحفظ البيانات محلياً.",
+    "tech": ["JavaScript", "HTML", "CSS Neon"],
+    "image": "/projects/TaskManager.png",
+    "link": "https://taskmanager-by-raseel.netlify.app/"
+  }
+    ],
+    "resume_content": {
+      "text": "يمكنك تحميل سيرتي الذاتية بالنسخة التي تناسبك:",
+      "files": [
+        { "label": "السيرة الذاتية (عربي)", "url": "/resumes/ar-resume.pdf" },
+        { "label": "السيرة الذاتية (إنجليزي)", "url": "/resumes/en-resume.pdf" },
+        { "label": "السيرة الذاتية (لغة مزدوجة)", "url": "/resumes/dual-resume.pdf" }
+      ]
+    }
+  }
+}

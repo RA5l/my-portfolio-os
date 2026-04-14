@@ -1,20 +1,31 @@
 import { useState, useEffect } from 'react';
 import { GithubLogo, LinkedinLogo, TwitterLogo, EnvelopeSimple, CaretUp } from "@phosphor-icons/react";
+import { useTranslation } from 'react-i18next';
 
 const Taskbar = () => {
   const [time, setTime] = useState("");
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("EN");
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }));
+      const timeLocale = i18n.language === 'ar' ? 'ar-SA' : 'en-US';
+      setTime(now.toLocaleTimeString(timeLocale, { hour: '2-digit', minute: '2-digit', hour12: true }));
     };
     updateTime();
     const timer = setInterval(updateTime, 60000);
     return () => clearInterval(timer);
-  }, []);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    document.body.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n.language]);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setIsLangOpen(false);
+  };
 
   return (
     <footer className="h-16 w-full bg-[#f3f3f3] border-t border-gray-200 flex items-center px-10 justify-between z-50 relative font-sans">
@@ -32,21 +43,21 @@ const Taskbar = () => {
             onClick={() => setIsLangOpen(!isLangOpen)}
             className="flex items-center gap-1.5 text-xs font-black text-gray-500 hover:text-black transition-colors uppercase tracking-widest"
           >
-            {currentLang === "EN" ? "AR" : "ENG"}
+            {i18n.language === "en" ? "AR" : "ENG"}
             <CaretUp size={14} weight="bold" className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
           </button>
 
           {isLangOpen && (
             <div className="absolute bottom-[calc(100%+15px)] left-0 w-32 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-2xl overflow-hidden py-1">
               <button 
-                onClick={() => { setCurrentLang("EN"); setIsLangOpen(false); }}
-                className={`w-full px-4 py-2.5 text-[10px] font-black text-left transition-colors border-b border-gray-50 uppercase ${currentLang === "EN" ? "text-black bg-gray-50" : "text-gray-400 hover:text-black"}`}
+                onClick={() => changeLanguage("en")}
+                className={`w-full px-4 py-2.5 text-[10px] font-black text-left transition-colors border-b border-gray-50 uppercase ${i18n.language === "en" ? "text-black bg-gray-50" : "text-gray-400 hover:text-black"}`}
               >
                 English
               </button>
               <button 
-                onClick={() => { setCurrentLang("AR"); setIsLangOpen(false); }}
-                className={`w-full px-4 py-2.5 text-[10px] font-black text-left transition-colors ${currentLang === "AR" ? "text-black bg-gray-50" : "text-gray-400 hover:text-black"}`}
+                onClick={() => changeLanguage("ar")}
+                className={`w-full px-4 py-2.5 text-[10px] font-black text-left transition-colors ${i18n.language === "ar" ? "text-black bg-gray-50" : "text-gray-400 hover:text-black"}`}
               >
                 العربية
               </button>
