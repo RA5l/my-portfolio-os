@@ -182,3 +182,39 @@
     border-right-color: var(--border);
   }
 }
+.custom-calendar-ui {
+  border: none !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  width: 100% !important;
+}
+
+.react-calendar__navigation button {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #ccc;
+  text-decoration: none !important;
+}
+
+.react-calendar__tile--now {
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 10px;
+}
+
+.react-calendar__tile--active {
+  background: #f0f0f0 !important;
+  color: #000 !important;
+  border-radius: 10px;
+}
+
+.react-calendar__tile:hover {
+  border-radius: 10px;
+  background-color: #f7f7f7 !important;
+}

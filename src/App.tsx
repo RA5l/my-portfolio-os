@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Taskbar from './components/Taskbar/Taskbar';
 import bgImage from './assets/bg.png';
 import Desktop from './components/Desktop/Desktop';
@@ -10,10 +11,51 @@ import ResumeWindow from './components/Windows/ResumeWindow';
 import './App.css';
 
 function App() {
-  const [activeWindow, setActiveWindow] = useState<string | null>(null);
+  const [openWindows, setOpenWindows] = useState<string[]>([]);
+  const [windowOrder, setWindowOrder] = useState<string[]>([]);
+  const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
 
-  const closeWindow = () => setActiveWindow(null);
-  const openWindow = (id: string) => setActiveWindow(id);
+  const openWindow = (id: string) => {
+    if (!openWindows.includes(id)) {
+      setOpenWindows((prev) => [...prev, id]);
+    }
+    if (minimizedWindows.includes(id)) {
+      setMinimizedWindows((prev) => prev.filter((winId) => winId !== id));
+    }
+    focusWindow(id);
+  };
+
+  const closeWindow = (id: string) => {
+    setOpenWindows((prev) => prev.filter((windowId) => windowId !== id));
+    setWindowOrder((prev) => prev.filter((windowId) => windowId !== id));
+    setMinimizedWindows((prev) => prev.filter((winId) => winId !== id));
+  };
+
+  const toggleMinimize = (id: string) => {
+    if (minimizedWindows.includes(id)) {
+      setMinimizedWindows((prev) => prev.filter((winId) => winId !== id));
+      focusWindow(id);
+    } else {
+      setMinimizedWindows((prev) => [...prev, id]);
+    }
+  };
+
+  const focusWindow = (id: string) => {
+    setWindowOrder((prev) => {
+      const remaining = prev.filter((windowId) => windowId !== id);
+      return [...remaining, id];
+    });
+  };
+
+  const handleTaskbarClick = (id: string) => {
+    if (minimizedWindows.includes(id)) {
+      toggleMinimize(id);
+    } else if (windowOrder[windowOrder.length - 1] === id) {
+      toggleMinimize(id);
+    } else {
+      focusWindow(id);
+    }
+  };
 
   return (
     <div className="h-screen w-full bg-white relative overflow-hidden flex flex-col font-mono">
@@ -30,19 +72,38 @@ function App() {
         
         <Desktop onIconClick={openWindow} />
 
-        {activeWindow && (
-          <Window titleKey={activeWindow} onClose={closeWindow}>
-            {activeWindow === 'about' && <AboutWindow />}
-            
-            {activeWindow === 'projects' && <ProjectsWindow />}
-
-            {activeWindow === 'skills' && <SkillsWindow />}
-            {activeWindow === 'resume' && <ResumeWindow />}
-          </Window>
-        )}
+        <AnimatePresence>
+          {openWindows.map((id) => (
+            !minimizedWindows.includes(id) && (
+              <div 
+                key={id} 
+                style={{ zIndex: windowOrder.indexOf(id) + 10 }} 
+                onMouseDown={() => focusWindow(id)}
+                className="absolute inset-0 pointer-events-none"
+              >
+                <div className="pointer-events-auto contents">
+                  <Window 
+                    titleKey={id} 
+                    onClose={() => closeWindow(id)} 
+                    onMinimize={() => toggleMinimize(id)}
+                  >
+                    {id === 'about' && <AboutWindow />}
+                    {id === 'projects' && <ProjectsWindow />}
+                    {id === 'skills' && <SkillsWindow />}
+                    {id === 'resume' && <ResumeWindow />}
+                  </Window>
+                </div>
+              </div>
+            )
+          ))}
+        </AnimatePresence>
       </main>
       
-      <Taskbar />
+      <Taskbar 
+        openWindows={openWindows}
+        activeWindow={windowOrder[windowOrder.length - 1] || null}
+        onTabClick={handleTaskbarClick} 
+        minimizedWindows={[]}      />
     </div>
   );
 }

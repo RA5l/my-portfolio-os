@@ -8,33 +8,30 @@ const Desktop = ({ onIconClick }: DesktopProps) => {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none">
       
-      <div className="absolute left-10 top-20 flex flex-col gap-10 pointer-events-auto">
-        <DesktopIcon 
-          labelKey="projects" 
-          onClick={() => onIconClick('projects')} 
-        />
-        <div className="ml-6 mt-6">
-          <DesktopIcon 
-            labelKey="resume" 
-            onClick={() => onIconClick('resume')} 
-          />
-        </div>
-      </div>
+      
+      <DesktopIcon 
+        labelKey="projects" 
+        onClick={() => onIconClick('projects')} 
+        className="left-[8%] top-[15%] pointer-events-auto" 
+      />
 
-      <div className="absolute right-12 top-24 flex flex-col gap-10 pointer-events-auto">
-        <div className="mb-8">
-          <DesktopIcon 
-            labelKey="skills" 
-            onClick={() => onIconClick('skills')} 
-          />
-        </div>
-        <div className="mr-6">
-          <DesktopIcon 
-            labelKey="about" 
-            onClick={() => onIconClick('about')} 
-          />
-        </div>
-      </div>
+      <DesktopIcon 
+        labelKey="resume" 
+        onClick={() => onIconClick('resume')} 
+        className="left-[5%] bottom-[25%] pointer-events-auto" 
+      />
+
+      <DesktopIcon 
+        labelKey="skills" 
+        onClick={() => onIconClick('skills')} 
+        className="right-[10%] top-[10%] pointer-events-auto" 
+      />
+
+      <DesktopIcon 
+        labelKey="about" 
+        onClick={() => onIconClick('about')} 
+        className="right-[7%] bottom-[30%] pointer-events-auto" 
+      />
 
     </div>
   );
