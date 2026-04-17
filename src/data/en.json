@@ -1,5 +1,8 @@
 {
   "translation": {
+    "project_case_label": "Project Case",
+    "explore_live": "EXPLORE LIVE",
+    "view_source": "VIEW SOURCE",
     "sections": {
       "about": "About Me",
       "skills": "My Skills",
@@ -79,6 +82,7 @@
     "image": "/projects/TaskManager.png",
     "link": "https://taskmanager-by-raseel.netlify.app/"
   }
+  
     ],
     "resume_content": {
       "text": "Download my resume in your preferred language:",

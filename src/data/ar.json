@@ -1,5 +1,8 @@
 {
   "translation": {
+    "project_case_label": "تفاصيل المشروع",
+    "explore_live": "عرض المشروع",
+    "view_source": "المصدر البرمجي",
     "sections": {
       "about": "عني",
       "skills": "مهاراتي",

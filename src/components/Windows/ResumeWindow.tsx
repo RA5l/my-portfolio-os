@@ -1,57 +1,68 @@
 import { useTranslation } from 'react-i18next';
-import { FilePdf, DownloadSimple, IdentificationCard } from "@phosphor-icons/react";
+import { FilePdf } from "@phosphor-icons/react";
 
-const ResumeWindow = () => {
+interface ResumeProps {
+  onClose?: () => void;
+  onMinimize?: () => void;
+}
+
+// eslint-disable-next-line no-empty-pattern
+const ResumeWindow = ({}: ResumeProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t } = useTranslation();
 
-  const resumeData = t('resume_content.files', { returnObjects: true }) as { label: string, url: string }[];
+  const cvFiles = [
+    { 
+      id: 'ar', 
+      title: "CV_Arabic.pdf", 
+      lang: "العربية",
+      link: "/path-to-your-ar-cv.pdf" 
+    },
+    { 
+      id: 'en', 
+      title: "CV_English.pdf", 
+      lang: "English",
+      link: "/path-to-your-en-cv.pdf" 
+    },
+    { 
+      id: 'dual', 
+      title: "CV_Bilingual.pdf", 
+      lang: "العربية / English",
+      link: "/path-to-your-dual-cv.pdf" 
+    },
+  ];
+
+  const handleDownload = (link: string) => {
+    window.open(link, '_blank');
+  };
 
   return (
-    <div className="max-w-2xl mx-auto py-8 animate-in fade-in slide-in-from-bottom-4 duration-500 text-center">
-      
-      <div className="mb-8 flex justify-center">
-        <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 shadow-sm border border-blue-100">
-          <IdentificationCard size={40} weight="duotone" />
-        </div>
-      </div>
-
-      <h2 className="text-2xl font-black text-gray-800 mb-4">
-        {t('sections.resume')}
-      </h2>
-      
-      <p className="text-gray-600 mb-10 leading-relaxed max-w-md mx-auto">
-        {t('resume_content.text')}
-      </p>
-
-      <div className="grid grid-cols-1 gap-4">
-        {resumeData.map((file, index) => (
-          <a
-            key={index}
-            href={file.url}
-            download
-            className="flex items-center justify-between p-5 bg-white border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all group"
+    <div className="h-full w-full bg-white flex items-start justify-start p-8 overflow-y-auto custom-scrollbar">
+      <div className="flex flex-wrap gap-8 justify-center sm:justify-start w-full">
+        {cvFiles.map((file) => (
+          <div 
+            key={file.id}
+            onClick={() => handleDownload(file.link)}
+            className="flex flex-col items-center gap-2 p-4 rounded-lg cursor-pointer transition-all duration-200 group hover:bg-red-50 border border-transparent hover:border-red-100 w-32"
           >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-red-50 text-red-500 rounded-xl group-hover:bg-red-500 group-hover:text-white transition-colors">
-                <FilePdf size={28} weight="fill" />
-              </div>
-              <div className="text-right">
-                <h3 className="font-bold text-gray-800">{file.label}</h3>
-                <span className="text-xs text-gray-400 uppercase">PDF Document</span>
+            <div className="relative transform group-hover:-translate-y-1 transition-transform duration-200">
+              <FilePdf size={64} weight="fill" className="text-red-600" />
+              <div className="absolute -bottom-1 -right-1 bg-white border border-gray-200 rounded px-1 shadow-sm">
+                 <span className="text-[9px] font-bold text-gray-500 uppercase">{file.id}</span>
               </div>
             </div>
             
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-sm">
-              <span className="hidden group-hover:block transition-all">تحميل الآن</span>
-              <DownloadSimple size={22} weight="bold" />
+            <div className="flex flex-col items-center">
+              <span className="text-[12px] font-semibold text-gray-800 text-center line-clamp-1">
+                {file.title}
+              </span>
+              <span className="text-[10px] text-gray-400 font-medium">
+                {file.lang}
+              </span>
             </div>
-          </a>
+          </div>
         ))}
       </div>
-
-      <p className="mt-12 text-[10px] text-gray-400 uppercase tracking-widest">
-        آخر تحديث: أبريل 2026
-      </p>
     </div>
   );
 };

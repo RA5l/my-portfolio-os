@@ -1,69 +1,82 @@
 import { useTranslation } from 'react-i18next';
-import { Code, DeviceMobile, Wrench, Lightbulb } from "@phosphor-icons/react";
+import { 
+  Folder, AndroidLogo, AppleLogo, Target, 
+  ChatCircleText, ArrowsClockwise, Gear 
+} from "@phosphor-icons/react";
+import { 
+  SiReact, SiTypescript, SiVite, SiJavascript, SiCss, SiHtml5, 
+  SiVuedotjs, SiPhp, SiGithub, SiFigma, SiSqlite 
+} from '@icons-pack/react-simple-icons';
+import type { ComponentType, SVGAttributes } from 'react';
 
-const SkillsWindow = () => {
+interface SkillsWindowProps {
+  activeTab?: string;
+}
+
+const techIconMap: { 
+  [key: string]: { 
+    icon: ComponentType<SVGAttributes<SVGElement>> | any, 
+    color: string, 
+    isPhosphor?: boolean 
+  } 
+} = {
+  "React": { icon: SiReact, color: "#61DAFB" },
+  "TypeScript": { icon: SiTypescript, color: "#3178C6" },
+  "JavaScript": { icon: SiJavascript, color: "#F7DF1E" },
+  "HTML": { icon: SiHtml5, color: "#E34F26" },
+  "CSS": { icon: SiCss, color: "#1572B6" },
+  "PHP": { icon: SiPhp, color: "#777BB4" },
+  "Vue.js": { icon: SiVuedotjs, color: "#4FC08D" },
+  "Vite": { icon: SiVite, color: "#646CFF" },
+
+  "iOS (Swift)": { icon: AppleLogo, color: "#000000", isPhosphor: true },
+  "Android (Java, XML)": { icon: AndroidLogo, color: "#3DDC84", isPhosphor: true },
+
+  "Git & GitHub": { icon: SiGithub, color: "#181717" },
+  "SQL": { icon: SiSqlite, color: "#003B57" },
+  "Google Apps Script Automation": { icon: Gear, color: "#4285F4", isPhosphor: true },
+  "أتمتة Google Apps Script": { icon: Gear, color: "#4285F4", isPhosphor: true },
+  "UI/UX Design": { icon: SiFigma, color: "#F24E1E" },
+  "تصميم UI/UX": { icon: SiFigma, color: "#F24E1E" },
+
+  "Technical Problem Solving": { icon: Target, color: "#E91E63", isPhosphor: true },
+  "حل المشكلات التقنية": { icon: Target, color: "#E91E63", isPhosphor: true },
+  "Effective Communication": { icon: ChatCircleText, color: "#03A9F4", isPhosphor: true },
+  "التواصل الفعال": { icon: ChatCircleText, color: "#03A9F4", isPhosphor: true },
+  "Adaptability": { icon: ArrowsClockwise, color: "#4CAF50", isPhosphor: true },
+  "المرونة والتكيف": { icon: ArrowsClockwise, color: "#4CAF50", isPhosphor: true }
+};
+
+const SkillsWindow = ({ activeTab = 'web' }: SkillsWindowProps) => {
   const { t } = useTranslation();
-
-  const skillCategories = [
-    {
-      title: t('skills_content.web_title'),
-      skills: t('skills_content.web_list', { returnObjects: true }) as string[],
-      icon: <Code size={24} className="text-blue-500" />,
-      color: "bg-blue-50"
-    },
-    {
-      title: t('skills_content.mobile_title'),
-      skills: t('skills_content.mobile_list', { returnObjects: true }) as string[],
-      icon: <DeviceMobile size={24} className="text-purple-500" />,
-      color: "bg-purple-50"
-    },
-    {
-      title: t('skills_content.tools_title'),
-      skills: t('skills_content.tools_list', { returnObjects: true }) as string[],
-      icon: <Wrench size={24} className="text-orange-500" />,
-      color: "bg-orange-50"
-    },
-    {
-      title: t('skills_content.work_title'),
-      skills: t('skills_content.work_list', { returnObjects: true }) as string[],
-      icon: <Lightbulb size={24} className="text-green-500" />,
-      color: "bg-green-50"
-    }
-  ];
+  const skillList = t(`skills_content.${activeTab}_list`, { returnObjects: true }) as string[];
 
   return (
-    <div className="max-w-4xl mx-auto p-2 animate-in fade-in zoom-in duration-500">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {skillCategories.map((category, index) => (
-          <div 
-            key={index} 
-            className={`p-6 rounded-2xl border border-gray-100 shadow-sm transition-all hover:shadow-md ${category.color}`}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              {category.icon}
-              <h3 className="font-black text-gray-800 tracking-tight">
-                {category.title}
-              </h3>
-            </div>
+    <div className="flex-1 flex flex-col bg-white min-w-0 h-full">
+      <div className="flex-1 p-8 overflow-y-auto custom-scrollbar">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 max-w-7xl mx-auto">
+          {skillList && skillList.map((skillName, index) => {
+            const tech = techIconMap[skillName];
+            const Icon = tech?.icon;
             
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill, sIndex) => (
-                <span 
-                  key={sIndex} 
-                  className="bg-white/80 backdrop-blur-sm border border-gray-200 px-3 py-1 rounded-full text-sm font-medium text-gray-700 hover:border-blue-400 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 p-4 border-t border-dashed border-gray-200 text-center">
-        <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">
-          Currently exploring: Next.js 14 & AI Integration
-        </p>
+            return (
+              <div key={index} className="flex flex-col items-center gap-2 group p-4 rounded-lg hover:bg-gray-50 transition-all">
+                <div className="w-16 h-16 flex items-center justify-center transition-transform group-hover:scale-110">
+                  {tech ? (
+                    tech.isPhosphor ? (
+                      <Icon size={40} weight="fill" color={tech.color} />
+                    ) : (
+                      <Icon width={40} height={40} fill={tech.color} />
+                    )
+                  ) : (
+                    <Folder size={40} weight="fill" className="text-gray-200" />
+                  )}
+                </div>
+                <span className="text-[11px] font-bold text-center text-gray-700">{skillName}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
