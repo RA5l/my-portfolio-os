@@ -56,6 +56,17 @@ const Taskbar = ({ openWindows, activeWindow, minimizedWindows, onTabClick }: Ta
     setIsLangOpen(false);
   };
 
+  const handleEmailClick = () => {
+  const email = "raseelstudy@gmail.com";
+  const subject = "Contact from Portfolio";
+
+  navigator.clipboard.writeText(email);
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`;
+
+  window.open(gmailUrl, '_blank');
+   alert("Opening Gmail... (Email copied to clipboard)");
+  };
+
   return (
     <footer className="h-16 w-full bg-[#f3f3f3]/90 backdrop-blur-md border-t border-gray-200 flex items-center px-10 justify-between z-[9999] relative font-sans">
       
@@ -109,7 +120,9 @@ const Taskbar = ({ openWindows, activeWindow, minimizedWindows, onTabClick }: Ta
             <a href="https://github.com/RA5l" target="_blank" rel="noreferrer" className="group w-12 h-12 flex items-center justify-center rounded-md hover:bg-black/[0.04] transition-all"><GithubLogo size={28} weight="regular" className="text-black opacity-70 group-hover:opacity-100" /></a>
             <a href="https://www.linkedin.com/in/raseel-mohammed/" target="_blank" rel="noreferrer" className="group w-12 h-12 flex items-center justify-center rounded-md hover:bg-black/[0.04] transition-all"><LinkedinLogo size={28} weight="regular" className="text-black opacity-70 group-hover:opacity-100" /></a>
             <a href="https://x.com/rasetech0" target="_blank" rel="noreferrer" className="group w-12 h-12 flex items-center justify-center rounded-md hover:bg-black/[0.04] transition-all"><TwitterLogo size={28} weight="regular" className="text-black opacity-70 group-hover:opacity-100" /></a>
-            <a href="mailto:raseelstudy@gmail.com" className="group w-12 h-12 flex items-center justify-center rounded-md hover:bg-black/[0.04] transition-all"><EnvelopeSimple size={28} weight="regular" className="text-black opacity-70 group-hover:opacity-100" /></a>
+            <button onClick={handleEmailClick} className="group w-12 h-12 flex items-center justify-center rounded-md hover:bg-black/[0.04] transition-all">
+              <EnvelopeSimple size={28} weight="regular" className="text-black opacity-70 group-hover:opacity-100" />
+            </button>
           </div>
         </div>
       </div>

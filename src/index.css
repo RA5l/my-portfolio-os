@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 @import "tailwindcss";
 
+@theme {
+--font-arabic-custom: "Vazirmatn", sans-serif;
+}
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: white;
+}
+
+:root:has([lang="ar"]), [lang="ar"] {
+  font-family: var(--font-arabic-custom);
 }

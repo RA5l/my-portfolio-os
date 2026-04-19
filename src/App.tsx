@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback , useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Taskbar from './components/Taskbar/Taskbar';
 import bgImage from './assets/bg.png';
@@ -8,6 +8,8 @@ import AboutWindow from './components/Windows/AboutWindow';
 import ProjectsWindow from './components/Windows/ProjectsWindow';
 import SkillsWindow from './components/Windows/SkillsWindow';
 import ResumeWindow from './components/Windows/ResumeWindow';
+import LoadingScreen from "./components/Loading/LoadingScreen";
+import { useTranslation } from 'react-i18next';
 import './App.css';
 
 interface Project {
@@ -75,9 +77,29 @@ function App() {
     setSelectedProject(project);
   }, []);
 
+  const [isLoading, setIsLoading] = useState(true);
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000); 
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="h-screen w-full bg-white relative overflow-hidden flex flex-col font-mono text-gray-900">
-      <main 
+    <>
+    <AnimatePresence mode="wait">
+        {isLoading && (
+          <LoadingScreen 
+            key="loader"
+            message={isRTL ? "جاري تهيئة النظام..." : "Initializing System..."}
+            color="#000000"
+          />
+        )}
+      </AnimatePresence>
+
+     <div className={`${isRTL ? 'font-arabic-custom' : 'font-mono'} h-screen w-full bg-white relative overflow-hidden flex flex-col text-gray-900`}>
+        <main 
         className="flex-1 relative w-full"
         style={{
           backgroundImage: `url(${bgImage})`,
@@ -145,6 +167,7 @@ function App() {
         minimizedWindows={minimizedWindows} 
       />
     </div>
+    </>
   );
 }
 

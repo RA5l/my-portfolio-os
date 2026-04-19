@@ -24,7 +24,7 @@ interface WindowProps {
 }
 
 const WindowBody = ({ 
-  titleKey, children, onClose, onMinimize, onNavigate, onBack, canBack, extraPath, isMaximized, toggleMaximize,
+  titleKey, children, onClose, onMinimize, onNavigate, onBack, canBack, isMaximized, toggleMaximize,
   activeSubCategory, onSubCategoryChange 
 }: WindowProps & { isMaximized: boolean; toggleMaximize: () => void }) => {
   const { t, i18n } = useTranslation();

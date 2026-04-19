@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { FilePdf } from "@phosphor-icons/react";
 
 interface ResumeProps {
@@ -8,27 +7,25 @@ interface ResumeProps {
 
 // eslint-disable-next-line no-empty-pattern
 const ResumeWindow = ({}: ResumeProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation();
 
   const cvFiles = [
     { 
       id: 'ar', 
       title: "CV_Arabic.pdf", 
       lang: "العربية",
-      link: "/path-to-your-ar-cv.pdf" 
+      link: "/resumes/ar-resume.pdf" 
     },
     { 
       id: 'en', 
       title: "CV_English.pdf", 
       lang: "English",
-      link: "/path-to-your-en-cv.pdf" 
+      link: "/resumes/en-resume.pdf" 
     },
     { 
       id: 'dual', 
       title: "CV_Bilingual.pdf", 
       lang: "العربية / English",
-      link: "/path-to-your-dual-cv.pdf" 
+      link: "/resumes/dual-resume.pdf" 
     },
   ];
 
