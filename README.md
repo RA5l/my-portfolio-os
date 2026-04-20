@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 💻 My Portfolio OS | A Desktop-Inspired Web Experience
 
-Currently, two official plugins are available:
+An interactive, creative web-based portfolio designed to mimic a **Modern Desktop Operating System**. This project showcases my proficiency in React, TypeScript, and complex UI/UX orchestration, providing a unique way to explore my work and skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+### 🚀 Live Demo
+**Explore the OS here:** [https://raseel-portfolio.netlify.app/](https://raseel-portfolio.netlify.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### ✨ Key Features
+* **Window Management System:** Fully draggable windows with functional minimize, maximize, and close controls.
+* **Virtual File Explorer:** A familiar navigation system to browse through my projects and skills.
+* **Multi-language Support (i18n):** Seamlessly toggle between **Arabic (RTL)** and **English (LTR)** with full layout mirroring.
+* **Dynamic Backgrounds:** A clean, OS-inspired desktop environment with interactive icons.
+* **Responsive Logic:** Built with a "Desktop-First" approach to ensure a high-fidelity experience on laptops and PCs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠️ Tech Stack
+* **Core:** React.js ⚛️ & TypeScript 🟦
+* **Styling:** Tailwind CSS 🎨
+* **Animations:** Framer Motion ⚡
+* **Interactivity:** React Draggable 🖱️
+* **Icons:** Phosphor Icons 💎
+* **Localization:** react-i18next 🌐
+* **Deployment:** Netlify 🚀
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📁 Project Structure
+* **About Me:** My journey as a Full-stack Web Developer and Creative Professional.
+* **Projects:** A curated list of my work, including *GlowLixir*, *StudyPal*, and *DashViz*.
+* **Skills:** Categorized technical expertise in Web Development, Tools, and Productivity.
+* **Resume:** Access to my professional CV and academic background.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🛠️ Local Development
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/RA5l/my-portfolio-os.git](https://github.com/RA5l/my-portfolio-os.git)
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🤝 Connect With Me
+* **GitHub:** [@RA5l](https://github.com/RA5l)
+* **LinkedIn:** [[Raseel Mohammed](https://www.linkedin.com/in/raseel-mohammed/)]
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Developed with 💻 by **Raseel Mohammed**
