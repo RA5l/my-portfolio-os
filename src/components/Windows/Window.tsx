@@ -57,11 +57,19 @@ const WindowBody = ({
             {t(`sections.${titleKey}`)}
           </span>
         </div>
-        <div className="flex items-center">
-          <button onClick={onMinimize} className="p-2 hover:bg-gray-200 rounded text-gray-500"><Minus size={14} /></button>
-          <button onClick={toggleMaximize} className="p-2 hover:bg-gray-200 rounded text-gray-500">{isMaximized ? <CornersIn size={14} /> : <CornersOut size={14} />}</button>
-          <button onClick={onClose} className="p-2 hover:bg-[#e81123] hover:text-white rounded text-gray-500 transition-colors"><X size={14} weight="bold" /></button>
-        </div>
+      <div className="flex items-center">
+  <button onPointerDown={(e) => e.stopPropagation()} onClick={onMinimize} className="p-2 hover:bg-gray-200 rounded text-gray-500 touch-auto">
+    <Minus size={14} />
+  </button>
+
+  <button onPointerDown={(e) => e.stopPropagation()} onClick={toggleMaximize} className="p-2 hover:bg-gray-200 rounded text-gray-500 touch-auto">
+    {isMaximized ? <CornersIn size={14} /> : <CornersOut size={14} />}
+  </button>
+
+  <button onPointerDown={(e) => e.stopPropagation()} onClick={onClose} className="p-2 hover:bg-[#e81123] hover:text-white rounded text-gray-500 transition-colors touch-auto">
+    <X size={14} weight="bold" />
+    </button>
+      </div>
       </div>
 
       <div className={`h-11 bg-white border-b border-gray-200 flex items-center px-4 gap-4 shrink-0 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
@@ -164,14 +172,22 @@ const Window = (props: WindowProps) => {
   const nodeRef = useRef(null);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none" style={{ direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}>
-      <Draggable nodeRef={nodeRef} handle=".window-header" disabled={isMaximized}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4 pb-20 md:pb-24" style={{ direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}>
+      <Draggable nodeRef={nodeRef} handle=".window-header" disabled={isMaximized} bounds="parent">
         <motion.div 
           ref={nodeRef}
-          className="pointer-events-auto bg-white rounded-xl overflow-hidden border border-gray-300 shadow-2xl flex flex-col"
+          className={`
+            pointer-events-auto bg-white rounded-xl overflow-hidden border border-gray-300 shadow-2xl flex flex-col touch-none
+            ${isMaximized ? 'fixed inset-0 !transform-none z-[60]' : 'relative z-[50]'}
+          `}
           style={isMaximized 
             ? { width: '100vw', height: '100vh', borderRadius: 0 } 
-            : { width: '85vw', maxWidth: '1200px', height: '80vh', maxHeight: '850px' }
+            : { 
+                width: '92vw', 
+                maxWidth: '1200px', 
+                height: '80vh', 
+                maxHeight: '850px' 
+              }
           }
         >
           <WindowBody {...props} isMaximized={isMaximized} toggleMaximize={() => setIsMaximized(!isMaximized)} />
