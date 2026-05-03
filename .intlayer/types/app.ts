@@ -1,0 +1,18 @@
+/* eslint-disable */
+export default {
+  "key": "app",
+  "content": {
+    "nodeType": "translation",
+    "translation": {
+      "en": {
+        "greeting": "Hello from Intlayer!"
+      },
+      "ar": {
+        "greeting": "مرحباً من Intlayer!"
+      }
+    }
+  },
+  "localIds": [
+    "app::local::src\\content\\app.content.ts"
+  ]
+} as const;

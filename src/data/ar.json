@@ -28,15 +28,25 @@
       "work_list": ["حل المشكلات التقنية", "التواصل الفعال", "المرونة والتكيف"]
     },
     "projects_content": [
-    {
-        "id": "glowlixir",
-        "title": "GlowLixir",
-        "tagline": "نظام ذكي لتحليل العناية بالبشرة",
-        "desc": "مشروع متكامل يربط واجهة React بـ FastAPI لتوليد توصيات مخصصة للبشرة[cite: 21, 55, 56].",
-        "tech": ["React", "FastAPI", "SQLite", "Pydantic"],
-        "image": "/projects/GlowLixir.png",
-        "link": "https://github.com/RA5l/GlowLixir"
-      },
+
+  {
+  "id": "alzabda",
+  "title": "الزبدة",
+  "tagline": "محلل جمهور يوتيوب بالذكاء الاصطناعي",
+  "desc": "موقع يحلل تعليقات أي مقطع يوتيوب ويعطي صانع المحتوى  خلاصة جمهوره بالعامية — نسب المشاعر، دوافع الجمهور، مؤشر الكنسلة، وتوصيات للمقطع الجاي.",
+  "tech": ["React", "TypeScript", "Vite", "Tailwind"],
+  "image": "/projects/alzabda.png",
+  "link": "https://alzabda-by-raseel.netlify.app/"
+  },
+  {
+    "id": "glowlixir",
+    "title": "GlowLixir",
+    "tagline": "نظام ذكي لتحليل العناية بالبشرة",
+    "desc": "مشروع متكامل يربط واجهة React بـ FastAPI لتوليد توصيات مخصصة للبشرة[cite: 21, 55, 56].",
+    "tech": ["React", "FastAPI", "SQLite", "Pydantic"],
+    "image": "/projects/GlowLixir.png",
+    "link": "https://github.com/RA5l/GlowLixir"
+  },
   {
     "id": "dashviz",
     "title": "DashViz",

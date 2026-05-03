@@ -1,0 +1,17 @@
+[
+  {
+    "key": "app",
+    "content": {
+      "greeting": {
+        "nodeType": "translation",
+        "translation": {
+          "en": "Hello from Intlayer!",
+          "ar": "مرحباً من Intlayer!"
+        }
+      }
+    },
+    "location": "local",
+    "localId": "app::local::src\\content\\app.content.ts",
+    "filePath": "src\\content\\app.content.ts"
+  }
+]

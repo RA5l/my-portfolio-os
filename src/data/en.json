@@ -28,6 +28,16 @@
       "work_list": ["Technical Problem Solving", "Effective Communication", "Adaptability"]
     },
     "projects_content": [
+
+  {
+  "id": "alzabda",
+  "title": "Alzabda",
+  "tagline": "AI YouTube Audience Analyzer",
+  "desc": "An AI-powered website that analyzes YouTube comments and gives Saudi content creators deep audience insights in Arabic dialect — sentiment analysis, audience motivations, cancel culture meter, and next video recommendations.",
+  "tech": ["React", "TypeScript", "Vite", "Tailwind"],
+  "image": "/projects/alzabda.png",
+  "link": "https://alzabda-by-raseel.netlify.app/"
+  },
     {
   "id": "glowlixir",
   "title": "GlowLixir",
