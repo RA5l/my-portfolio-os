@@ -6,7 +6,11 @@ import MobileProjectFolder from './MobileProjectFolder';
 import MobileSheet from './MobileSheet'; 
 import bgImage from '../../assets/bg.png';
 
-const MobileLayout: React.FC = () => {
+interface MobileLayoutProps {
+  onOpenWindow?: (id: string) => void;
+}
+
+const MobileLayout: React.FC<MobileLayoutProps> = () => {
   const [folderOrigin, setFolderOrigin] = useState<DOMRect | null>(null);
   const [activeApp, setActiveApp] = useState<string | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);

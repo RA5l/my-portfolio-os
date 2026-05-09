@@ -35,7 +35,7 @@ interface Props {
   onOpenProject: (id: string) => void;
 }
 
-const MobileProjectFolder: React.FC<Props> = ({ isOpen, originRect, onClose, onOpenProject }) => {
+const MobileProjectFolder: React.FC<Props> = ({ isOpen,onClose, onOpenProject }) => {
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   

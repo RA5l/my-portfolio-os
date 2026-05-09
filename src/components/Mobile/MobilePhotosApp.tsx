@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, Plus } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { Files, MagnifyingGlass, Sparkle } from "@phosphor-icons/react";
 import { useTranslation } from 'react-i18next';
 

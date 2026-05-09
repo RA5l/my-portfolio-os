@@ -10,13 +10,15 @@ interface MobileSheetProps {
   isOpen: boolean;
   onClose: () => void;
   activeApp: string | null;
+  children?: React.ReactNode;
 }
 
-const MobileSheet: React.FC<MobileSheetProps> = ({ isOpen, onClose, activeApp }) => {
+const MobileSheet: React.FC<MobileSheetProps> = ({ isOpen, onClose, activeApp, children }) => {
   const systemApps = ['about', 'resume', 'skills', 'projects', 'photos'];
   const isProject = activeApp && !systemApps.includes(activeApp);
 
   const renderContent = () => {
+    if (children) return children;
     if (isProject) return <MobileProjectDetail projectId={activeApp!} onClose={onClose} />;
 
     switch (activeApp) {

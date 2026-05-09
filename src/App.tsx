@@ -118,7 +118,7 @@ function App() {
             <MobileSheet
               isOpen={activeMobileWindow !== null}
               onClose={handleMobileClose}
-              title={activeMobileWindow || ""}
+              activeApp={activeMobileWindow}
             >
               {activeMobileWindow === 'about' && <AboutWindow />}
               {activeMobileWindow === 'projects' && (
